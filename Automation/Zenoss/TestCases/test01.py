@@ -1,17 +1,16 @@
-import unittest
 from Automation.Framework.BrowserType import BrowserType
-from Automation.Framework.TestCase_Super import TestCase_Super
+from Automation.Framework.TestCaseSuper import TestCaseSuper
 from Automation.Zenoss.Pages.UI import UI
 
-__author__ = 'Oscar Mario'
 
+class Test01(TestCaseSuper):
+    current_Page = None
 
-class test01(TestCase_Super):
     def setUp(self):
-        self.ui = UI(BrowserType.firefox)
+        self.ui = UI(BrowserType.chrome)
 
     def test_Test01(self):
-        self.current_Page = self.ui.get_Home_Page().loginWithValidUser().isItOnApplicationPagesValidator()
+        self.current_Page = self.ui.get_home_page().login_with_valid_user().is_on_application_pages_validator()
 
     def tearDown(self):
-        self.current_Page.get_UI().get_driver().close()
+        self.current_Page.get_ui().get_driver().close()

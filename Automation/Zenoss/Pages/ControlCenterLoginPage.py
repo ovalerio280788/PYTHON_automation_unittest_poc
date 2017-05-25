@@ -10,15 +10,13 @@ from Automation.Zenoss.Pages.ControlCenterApplications import ControlCenterAppli
 __author__ = 'Oscar Mario'
 
 
-class ControlCenterLogin(Page):
+class ControlCenterLoginPage(Page):
     
-    Find_user = (By.XPATH, ".//*[@id='login']/input[1]")
-    Find_passwd = (By.XPATH, ".//*[@id='login']/input[2]")
-    Find_btnLogin = (By.XPATH, ".//*[@id='login']/button")
+    Find_user = (By.CSS_SELECTOR, "[placeholder='Username']")
+    Find_password = (By.CSS_SELECTOR, "[placeholder='Password']")
+    Find_btnLogin = (By.CSS_SELECTOR, "[type='submit']")
 
-    @FindBy ()
-
-    def loginWithValidUser(self):
-        self.Find_user.send_keys("zenny")
-        self.Find_passwd.send_keys("Z3n0ss")
-        return self.go_To_Page(self.Find_btnLogin, ControlCenterApplications())
+    def login_with_valid_user(self):
+        self.Find_user.send_keys("root")
+        self.Find_password.send_keys("D0gP0und!")
+        return self.go_to_page(self.Find_btnLogin, ControlCenterApplications())

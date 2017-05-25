@@ -4,7 +4,8 @@ from selenium.webdriver.firefox.webdriver import WebDriver
 __author__ = 'Oscar Mario'
 
 
-class UI_Super:
+class UiSuper:
+    __driver = None
 
     def __init__(self, browser_type):
         if browser_type != "":
@@ -22,7 +23,7 @@ class UI_Super:
             self.__driver.delete_all_cookies()
             self.__driver.implicitly_wait(100)
             self.__driver.set_page_load_timeout(100)
-            print('BROWSER OPENED')
+            print("\n\n|-- BROWSER OPENED")
         else:
             self.__driver = self.get_driver()
 
